@@ -1,25 +1,49 @@
-#include<stdio.h>
-#include<conio.h>
+#include <stdio.h>
 
-int soma1(int pn, int sn); // funcao
-
-
-int main (void){
-
- int n1, n2, r,
-
-    printf('Escreva o primeiro numero: ');
-      scanf('%d', &n1);
-    
-    printf('Escreva o segundo numero: ');
-      scanf('%d', &n2);
-
-    r = soma1(n1 , n2);
-      printf();
+float SOMA(float a, float b){  //funcao
+  float result;     
+  result = a + b;
+  return result;
 }
-int soma1(int N1, int N2) //multiplica recebe N1,N2 e retorna um int
+
+float SUBTRASAO(float a, float b){  
+  float result;     
+  result = a - b;
+  return result;
+}
+
+float MULTIPLICASAO(float a, float b){
+  float result;
+  result = a * b;
+  return result;
+}
+
+float DIVISAO(float a, float b){
+  float result;
+  result = a / b;
+  return result;
+}
+
+int main()
 {
-  int resultado;
-  resultado = N1 * N2;
-  return(resultado); //retornando o valor para main
+    float a, b, s, s1, s2, s3;
+
+    printf("\nDigite o primeiro valor:");
+      scanf("%f", &a);
+
+    printf("\nDigite o segundo valor:");
+      scanf("%f", &b);
+    
+    s = SOMA(a,b);
+    printf("\nA soma de %f + %f é %f\n", a,b,s); 
+
+    s1 = SUBTRASAO(a,b);
+    printf("\nA subtracao de %f - %f é %f\n", a,b,s1); 
+
+    s2 = MULTIPLICASAO(a,b);
+    printf("\nA multiplicacao de %f * %f é %f\n", a,b,s2); 
+    
+    s3 = DIVISAO(a,b);
+    printf("\nA divisao de %f com %f é %f\n", a,b,s3); 
+    return 0;
 }
