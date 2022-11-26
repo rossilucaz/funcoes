@@ -1,49 +1,112 @@
 #include <stdio.h>
 
 float SOMA(float a, float b){  //funcao
-  float result;     
-  result = a + b;
-  return result;
+  float resultado;     
+  resultado = a + b;
+  return resultado;
 }
 
-float SUBTRASAO(float a, float b){  
-  float result;     
-  result = a - b;
-  return result;
+float SUBTRACAO(float a, float b){  
+  float resultado;     
+  resultado = a - b;
+  return resultado;
 }
 
-float MULTIPLICASAO(float a, float b){
-  float result;
-  result = a * b;
-  return result;
+float MULTIPLICACAO(float a, float b){
+  float resultado;
+  resultado = a * b;
+  return resultado;
 }
 
 float DIVISAO(float a, float b){
-  float result;
-  result = a / b;
-  return result;
+  float resultado;
+  resultado = a / b;
+  return resultado;
 }
 
 int main()
 {
-    float a, b, s, s1, s2, s3;
+    float a, b, r, r1, r2, r3, retorno = 0, retorno1 = 0;  
+    int op = 1;
+    char letra, letra1;
 
-    printf("\nDigite o primeiro valor:");
-      scanf("%f", &a);
+  do{
+    printf("\nDigite o Primeiro Valor: ");  // o usuario só pode digitar apenas numeros
+      retorno = scanf("%f", &a);
+        do{
+            letra = getchar(); // é como uns scanf mas é foltado pra caracteres
+            printf("%c", letra); 
+        }while(letra != '\n'); // qualquer valor char retorna 0
+    }while(retorno == 0);
 
-    printf("\nDigite o segundo valor:");
-      scanf("%f", &b);
+    do{
+    printf("\nDigite o Segundo Valor: ");
+      retorno1 = scanf("%f", &b);
+        do{
+            letra1 = getchar();
+            printf("%c", letra1);
+        }while(letra1 != '\n');
+    }while(retorno1 == 0);
     
-    s = SOMA(a,b);
-    printf("\nA soma de %f + %f é %f\n", a,b,s); 
+    while (op != 5){    // opçoes
 
-    s1 = SUBTRASAO(a,b);
-    printf("\nA subtracao de %f - %f é %f\n", a,b,s1); 
 
-    s2 = MULTIPLICASAO(a,b);
-    printf("\nA multiplicacao de %f * %f é %f\n", a,b,s2); 
+      printf("\n 1 - Soma");
+      printf("\n 2 - Subtração");
+      printf("\n 3 - Multiplicação");
+      printf("\n 4 - Divisão");
+      printf("\n 5 - Sair");
+      printf("\n Escolha uma opcao: ");
+      scanf("%d",&op);
+
+    switch(op){  // define cada opção
+      
+      case 1: {  // opcao 1
+
+      r = SOMA(a, b);   // chamando a funcao
+      printf("\n A SOMA dos valores %f + %f = %f", a, b, r);
+
+      break;
+      }
+
+    case 2: {
+      
+      r1 = SUBTRACAO(a, b);
+      printf("\n A SUBTRAÇÂO dos valores %f - %f = %f", a, b, r1);
+
+      break;
+      }
+
+    case 3: {
+      
+      r2 = MULTIPLICACAO(a, b);
+      printf("\n A SUBTRAÇÂO dos valores %f * %f = %f", a, b, r2);
+
+      break;
+      
+      }
+
+    case 4: {
+      
+      r3 = DIVISAO(a, b);
+      printf("\n A SUBTRAÇÂO dos valores %f / %f = %f", a, b, r3);
+
+      break;
+      }
+       
+  default:{ // opção padrão 
+  
+    if( op==5){  // se for escolhida a opção 5, ele pula o while utilizando continue p 
     
-    s3 = DIVISAO(a,b);
-    printf("\nA divisao de %f com %f é %f\n", a,b,s3); 
-    return 0;
+    continue;
+    }
+
+    printf("\nNÂO EXISTE ESSA OPÇÃO"); // se digitar numero negativo ou acima de 5
+    break;
+  }
+  }
+ }
+
+  if( op==5)
+  printf("\nTchau Até a Proxíma!!! ");
 }
