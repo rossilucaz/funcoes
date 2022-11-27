@@ -1,38 +1,44 @@
 #include <stdio.h>
 
 float SOMA(float a, float aa, float b, float bb){  //funcao
-  a =  a + aa;
-  b = b + bb;
+  a =  a + b;
+  b = aa + bb;
 
   printf("\n Resultado da soma %.3f + %.3fi\n",a,b); 
 }
 
 float SUBTRACAO(float a, float aa, float b, float bb){  
-  a = a - aa;
-  b = b - bb;
+  a = a - b;
+  b = aa - bb;
 
-  printf("\n Resultado da subtração %.3f - %.3fi\n",a,b); 
+  printf("\n Resultado da subtração %.3f + %.3fi\n",a,b); 
 }
 
-float MULTIPLICACAO(float a, float aa, float b, float bb){
-  a = a * aa;
-  b = b * bb;
+float MULTIPLICACAO(float a, float aa, float b, float bb, float c, float d){
+  c = a * b + (aa * bb) * (-1);
+  d = (a * bb) + (aa * b); 
   
-  printf("\n Resultado da multiplicação %.3f * %.3fi\n",a,b); 
+  printf("\n Resultado da multiplicação %.3f + %.3fi\n",c,d); 
 }
 
-float DIVISAO(float a, float aa, float b, float bb){
-  a = a / aa;
-  b = b / bb;
-
-  printf("\n Resultado da divisão %.3f / %.3fi\n",a,b);
+float DIVISAO(float a, float aa, float b, float bb, float c, float d, float e, float f, float g){
+  c = a * b + (aa * bb) * (-1);
+  d = (a * bb) + (aa * b); 
+  e = (b * b) + (bb * bb) ;
+  f = c / e * (-1);
+  g = d / e;
+  
+  printf("\n Resultado da divisão (%.3f) + (%.3fi)", g, f);
 }
 
-float CONJULGADO(float a,float b, float aa, float bb ){
+float CONJULGADO(float a,float b, float aa, float bb){
+  float m = -1;
+  aa = aa * m;
+  bb = bb * m;
 
     printf("\nConjulgado");
-    printf("\n Primeiro Valor %.3f + %.3fi\n",a,aa); 
-    printf("\n Segundo Valor %.3f + %.3fi\n",b,bb); 
+    printf("\n Primeiro Valor %.3f + (%.3fi)\n",a,aa); 
+    printf("\n Segundo Valor %.3f + (%.3fi)\n",b,bb); 
 }
 
 float IGUAL(float a,float aa, float b, float bb){
@@ -51,11 +57,43 @@ float IGUAL(float a,float aa, float b, float bb){
     }
       else if(a != b && aa != bb){
         printf("\n Não são iguais");
-    }    
+    }  
 }
+float PUROS(float a,float aa, float b, float bb) {
+
+    printf("\nReal");
+      if(a != 0 && aa == 0){
+        printf("\nPrimeiro valor é Puro");
+      }
+      else
+        printf("\nPrimeiro valor Nâo é Puro");
+    
+     if(b != 0 && bb == 0){
+        printf("\nSegundo valor é Puro");
+      }
+      else{
+        printf("\nSegundo valor Nâo é Puro");
+      }
+
+    printf("\nImaginario");
+      if(a == 0 && aa != 0){
+        printf("\nPrimeiro valor é Puro");
+      }
+      else
+        printf("\nPrimeiro valor Nâo é Puro");
+    
+     if(b == 0 && bb != 0){
+        printf("\nSegundo valor é Puro");
+      }
+      else{
+        printf("\n Segundo valor Nâo é Puro");
+      }
+
+
+} 
 int main()
 {
-    float a, aa, b, bb, r, r1, r2, r3, retorno = 0, retorno1 = 0;  
+    float a, aa, b, bb, r, r1, r2, r3, c, d, e, f, g, retorno = 0, retorno1 = 0;  
     int op = 1;
     char letra, letra1;
 
@@ -129,7 +167,7 @@ int main()
     }while(retorno1 == 0);
 
 
-    while (op != 6){    // opçoes
+    while (op != 8){    // opçoes
 
     
       printf("\n 1 - Soma");              // não da pra colocar letra que buga
@@ -138,7 +176,8 @@ int main()
       printf("\n 4 - Divisão");
       printf("\n 5 - Conjulgado");
       printf("\n 6 - Complexos Iguais");
-      printf("\n 7 - Sair");
+      printf("\n 7 - Puros");
+      printf("\n 8 - Sair"); 
       printf("\n Escolha uma opcao: ");
       scanf("%d",&op);
 
@@ -160,7 +199,7 @@ int main()
 
     case 3: {
       
-      MULTIPLICACAO(a, aa, b, bb);
+      MULTIPLICACAO(a, aa, b, bb, c, d);
 
       break;
       
@@ -168,27 +207,35 @@ int main()
 
     case 4: {
       
-      DIVISAO(a, aa, b, bb);
+      DIVISAO(a, aa, b, bb, c, d, e, f, g);
   
       break;
       }
 
-      case 5: {
+    case 5: {
       
       CONJULGADO(a, aa, b, bb);
   
       break;
       }
-       case 6: {
+    
+    case 6: {
       
       IGUAL(a, aa, b, bb);
+  
+      break;
+      }
+    
+    case 7: {
+      
+      PUROS(a, aa, b, bb);
   
       break;
       }
 
   default:{ // opção padrão 
   
-    if( op==7){  // se for escolhida a opção 5, ele pula o while utilizando continue p 
+    if( op==8){  // se for escolhida a opção 8, ele pula o while utilizando continue p 
     
      continue;
     }
@@ -199,6 +246,6 @@ int main()
 }
 }
 
-  if( op==7)
+  if( op==8)
   printf("\nTchau até a Proxíma!!! ");
 }
