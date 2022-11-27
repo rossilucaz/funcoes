@@ -1,37 +1,66 @@
 #include <stdio.h>
 
-float SOMA(float a, float b){  //funcao
-  float resultado;     
-  resultado = a + b;
-  return resultado;
+float SOMA(float a, float aa, float b, float bb){  //funcao
+  a =  a + aa;
+  b = b + bb;
+
+  printf("\n Resultado da soma %.3f + %.3fi\n",a,b); 
 }
 
-float SUBTRACAO(float a, float b){  
-  float resultado;     
-  resultado = a - b;
-  return resultado;
+float SUBTRACAO(float a, float aa, float b, float bb){  
+  a = a - aa;
+  b = b - bb;
+
+  printf("\n Resultado da subtração %.3f - %.3fi\n",a,b); 
 }
 
-float MULTIPLICACAO(float a, float b){
-  float resultado;
-  resultado = a * b;
-  return resultado;
+float MULTIPLICACAO(float a, float aa, float b, float bb){
+  a = a * aa;
+  b = b * bb;
+  
+  printf("\n Resultado da multiplicação %.3f * %.3fi\n",a,b); 
 }
 
-float DIVISAO(float a, float b){
-  float resultado;
-  resultado = a / b;
-  return resultado;
+float DIVISAO(float a, float aa, float b, float bb){
+  a = a / aa;
+  b = b / bb;
+
+  printf("\n Resultado da divisão %.3f / %.3fi\n",a,b);
 }
 
+float CONJULGADO(float a,float b, float aa, float bb ){
+
+    printf("\nConjulgado");
+    printf("\n Primeiro Valor %.3f + %.3fi\n",a,aa); 
+    printf("\n Segundo Valor %.3f + %.3fi\n",b,bb); 
+}
+
+float IGUAL(float a,float aa, float b, float bb){
+    
+    if(a == b && aa == bb){
+      printf("\n O Primeiro e o Segundo Valor Real são os mesmos");
+      printf("\n O Primeiro e o Segundo Valor Imaginario são os mesmos");
+    }
+      else if(a == b && aa != bb){
+        printf("\n O Primeiro e o Segundo Valor Real são os mesmos");
+        printf("\n O Primeiro e o Segundo Valor Imaginario NÂO são os mesmo");
+    }
+      else if(a != b && aa == bb){
+        printf("\n O Primeiro e o Segundo Valor Real NÂO são os mesmos");
+        printf("\n O Primeiro e o Segundo Valor Imaginario são os mesmo");
+    }
+      else if(a != b && aa != bb){
+        printf("\n Não são iguais");
+    }    
+}
 int main()
 {
-    float a, b, r, r1, r2, r3, retorno = 0, retorno1 = 0;  
+    float a, aa, b, bb, r, r1, r2, r3, retorno = 0, retorno1 = 0;  
     int op = 1;
     char letra, letra1;
 
   do{
-    printf("\nDigite o Primeiro Valor: ");  // o usuario só pode digitar apenas numeros
+    printf("\nDigite o Primeiro Valor Real: ");  // o usuario só pode digitar apenas numeros
       retorno = scanf("%f", &a);
        
         if(a == 0){
@@ -49,7 +78,24 @@ int main()
     }while(retorno == 0);
 
     do{
-      printf("\nDigite o Segundo Valor: ");
+      printf("\nDigite o Primeiro Valor Imaginario: ");
+        retorno1 = scanf("%f", &aa);
+
+       if(a == 0){
+          printf("\nDígite um Valor Diferente de 0: ");  
+            retorno = scanf("%f", &aa);      
+        }    
+        
+        do{
+          letra1 = getchar();
+            printf("%c", letra1);
+        
+        }while(letra1 != '\n');
+    
+    }while(retorno1 == 0);
+
+        do{
+      printf("\nDigite o Segundo Valor Real: ");
         retorno1 = scanf("%f", &b);
 
        if(a == 0){
@@ -64,17 +110,35 @@ int main()
         }while(letra1 != '\n');
     
     }while(retorno1 == 0);
-    
 
-  
-    while (op != 5){    // opçoes
+        do{
+      printf("\nDigite o Segundo Valor Imaginario: ");
+        retorno1 = scanf("%f", &bb);
+
+       if(a == 0){
+          printf("\nDígite um Valor Diferente de 0: ");  
+            retorno = scanf("%f", &bb);      
+        }    
+        
+        do{
+          letra1 = getchar();
+            printf("%c", letra1);
+        
+        }while(letra1 != '\n');
+    
+    }while(retorno1 == 0);
+
+
+    while (op != 6){    // opçoes
 
     
-      printf("\n 1 - Soma");
+      printf("\n 1 - Soma");              // não da pra colocar letra que buga
       printf("\n 2 - Subtração");
       printf("\n 3 - Multiplicação");
       printf("\n 4 - Divisão");
-      printf("\n 5 - Sair");
+      printf("\n 5 - Conjulgado");
+      printf("\n 6 - Complexos Iguais");
+      printf("\n 7 - Sair");
       printf("\n Escolha uma opcao: ");
       scanf("%d",&op);
 
@@ -82,24 +146,21 @@ int main()
       
       case 1: {  // opcao 1
 
-      r = SOMA(a, b);   // chamando a funcao
-        printf("\n A SOMA dos valores %f + %f = %f", a, b, r);
-
+      SOMA(a, aa, b, bb);   // chamando a funcao
+      
       break;
       }
 
     case 2: {
       
-      r1 = SUBTRACAO(a, b);
-        printf("\n A SUBTRAÇÂO dos valores %f - %f = %f", a, b, r1);
+      SUBTRACAO(a, aa, b, bb);
 
       break;
       }
 
     case 3: {
       
-      r2 = MULTIPLICACAO(a, b);
-        printf("\n A MULTIPLICAÇÃO dos valores %f * %f = %f", a, b, r2);
+      MULTIPLICACAO(a, aa, b, bb);
 
       break;
       
@@ -107,15 +168,27 @@ int main()
 
     case 4: {
       
-      r3 = DIVISAO(a, b);
-        printf("\n A DIVISÃO dos valores %f / %f = %f", a, b, r3);
-
+      DIVISAO(a, aa, b, bb);
+  
       break;
       }
-       
+
+      case 5: {
+      
+      CONJULGADO(a, aa, b, bb);
+  
+      break;
+      }
+       case 6: {
+      
+      IGUAL(a, aa, b, bb);
+  
+      break;
+      }
+
   default:{ // opção padrão 
   
-    if( op==5){  // se for escolhida a opção 5, ele pula o while utilizando continue p 
+    if( op==7){  // se for escolhida a opção 5, ele pula o while utilizando continue p 
     
      continue;
     }
@@ -126,6 +199,6 @@ int main()
 }
 }
 
-  if( op==5)
+  if( op==7)
   printf("\nTchau até a Proxíma!!! ");
 }
