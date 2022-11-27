@@ -100,12 +100,6 @@ int main()
   do{
     printf("\nDigite o Primeiro Valor Real: ");  // o usuario só pode digitar apenas numeros
       retorno = scanf("%f", &a);
-       
-        if(a == 0){
-          printf("\nDígite um Valor Diferente de 0: ");  
-            retorno = scanf("%f", &a);      
-        }
-
 
         do{   // identifica se tem letra e pega os numeros limpos a esquerda
           letra = getchar(); // é como uns scanf mas é Voltado pra caracteres
@@ -117,12 +111,7 @@ int main()
 
     do{
       printf("\nDigite o Primeiro Valor Imaginario: ");
-        retorno1 = scanf("%f", &aa);
-
-       if(a == 0){
-          printf("\nDígite um Valor Diferente de 0: ");  
-            retorno = scanf("%f", &aa);      
-        }    
+        retorno1 = scanf("%f", &aa);  
         
         do{
           letra1 = getchar();
@@ -134,12 +123,7 @@ int main()
 
         do{
       printf("\nDigite o Segundo Valor Real: ");
-        retorno1 = scanf("%f", &b);
-
-       if(a == 0){
-          printf("\nDígite um Valor Diferente de 0: ");  
-            retorno = scanf("%f", &b);      
-        }    
+        retorno1 = scanf("%f", &b);   
         
         do{
           letra1 = getchar();
@@ -151,12 +135,7 @@ int main()
 
         do{
       printf("\nDigite o Segundo Valor Imaginario: ");
-        retorno1 = scanf("%f", &bb);
-
-       if(a == 0){
-          printf("\nDígite um Valor Diferente de 0: ");  
-            retorno = scanf("%f", &bb);      
-        }    
+        retorno1 = scanf("%f", &bb);  
         
         do{
           letra1 = getchar();
